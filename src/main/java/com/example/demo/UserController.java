@@ -19,7 +19,7 @@ public class UserController {
 		System.out.println("testing");
 		return "testing";
 	}
-	
+	//Post Request
 	@PostMapping("/user")
 	void createUser(@RequestBody User user) {
 		System.out.println(user.getName());
