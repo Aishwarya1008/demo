@@ -20,7 +20,6 @@ public class UserController {
 		return "testing";
 	}
 	//Post Request
-	//Comments added Successfully
 	@PostMapping("/user")
 	void createUser(@RequestBody User user) {
 		System.out.println(user.getName());
