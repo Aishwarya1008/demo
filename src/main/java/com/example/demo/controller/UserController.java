@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,14 @@ public class UserController {
 
 	@PostMapping("/user")
 	@ResponseStatus(code = HttpStatus.CREATED)
+	@Transactional
 	void createUser(@RequestBody @Valid User user) {
 		System.out.println(user.getName());
 		userService.saveUser(user);
 	}
+	
 	@DeleteMapping("/user/{id}")
+	@Transactional
 	void deleteUser(@PathVariable("id") Integer id) {
 		userService.deleteUser(id);
 	}
